@@ -13,11 +13,32 @@ const getAllUserAccountsJoined = id => {
 const getAllUserAccounts = id => {
     return db('accounts as ac')
     .where("ac.user_id", "=", id)
-    .select("ac.id", "ac.name", "ac.type", "ac.value")
+    .select("ac.id", "ac.name", "ac.type","ac.value")
     .orderBy("ac.type");
-}
+};
+
+
+//save / post
+  const addAccount = (account) => {
+      return db('accounts').insert(account);
+  }
+
+
+
+//update /put
+
+
+
+//delete
+
+const deleteAccount = (id) => {
+    return db('accounts as ac').where("ac.id", "=", id).del();
+};
+
 
 module.exports = {
     getAllUserAccounts,
-  getAllUserAccountsJoined
+    getAllUserAccountsJoined,
+    deleteAccount, 
+    addAccount
 };

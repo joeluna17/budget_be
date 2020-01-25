@@ -6,7 +6,7 @@ exports.up = function(knex) {
                  .notNullable();
             tbl.text("type")
                  .notNullable();
-            tbl.decimal("value")
+            tbl.decimal("value", 8, 2)
                  .notNullable();
             tbl.integer("user_id")
                 .unsigned()
