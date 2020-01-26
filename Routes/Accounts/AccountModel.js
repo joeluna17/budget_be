@@ -19,11 +19,9 @@ const getAllUserAccounts = id => {
 
 
 //save / post
-  const addAccount = (account) => {
+  const addAccount =  (account) => {
       return db('accounts').insert(account);
   }
-
-
 
 //update /put
 
