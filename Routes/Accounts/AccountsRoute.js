@@ -24,6 +24,19 @@ router.post("/accounts/add-account", async (req, res) => {
   }
 });
 
+router.put("/accounts/update-account/:id", async (req, res) => {
+  const { id } = req.params;
+  const { value } = req.body;
+  console.log(req.body);
+  console.log(id, value);
+  try {
+    const updated = await data.updateUserAccountExpVal(id, value);
+    res.status(201).json(updated);
+  } catch ({ message }) {
+    res.status(500).json(message);
+  }
+});
+
 router.delete("/accounts/remove-account/:id", async (req, res) => {
   const { id } = req.params;
 
